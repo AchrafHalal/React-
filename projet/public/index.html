@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+  </script>
+  
+  <style>
+    .c1{
+      color: red;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <!--
+    <div id="app"></div>
+  <div id="list" ></div>
+   -->
+  <div id="div1"></div>
+  <div id="test"></div>
+  <div id="revision"></div>
+  <div id="app"></div>
+</body>
+  <script type="text/babel">
+    /*
+    var p = <p>bonjour react</p>;
+    ReactDOM.render(p , document.getElementById("app"))
+
+   var list =   <ul>
+    <li>html</li>
+    <li>css</li>
+    <li>python</li>
+    <li>php</li>
+  </ul>
+  ReactDOM.render(list , document.getElementById("list"))
+  var stylecss={listStyleType:"none",fontStyle:"italic",color:"green"}
+  var items=<ul className="c1" style={stylecss}>
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+    </ul>
+  var where=document.getElementById("app");
+  ReactDOM.render(items,where);  
+  var noms=["ali","ahmed","imane","kamal"];
+  var csscode={color:"blue",listStyleType:"none"};
+
+  var listNoms=<ul style={csscode}>
+    {noms.map(function(n,i){return <li key={i}>{n}</li>})}
+    </ul>;
+ 
+  var ListNoms=function(props){
+    <ul style={csscode}>
+    {props.noms.map(function(n,i){return <li key={i}>{n}</li>})}
+    </ul>;  
+  }
+  
+  //ReactDOM.render(<ListNoms noms={noms}/>,document.getElementById("div1")); 
+  
+function Message(props){
+  return <h1>Hello,{props.noms}</h1>
+}
+//ReactDOM.render(<Message noms="imane"/>,document.getElementById("test"));
+
+function Message({n}){
+  return <h1>Hello,{n}</h1>
+}
+ReactDOM.render(<Message noms="imane"/>,document.getElementById("test"));
+
+
+
+var noms=["ali","ahmed","imane","kamal"];
+  var csscode={color:"blue",listStyleType:"none"};
+  var ListNoms=function(props){
+    return <ul style={{color:"green"}}>
+      {props.ns.map((n,i)=><li key={i}>{n}</li> )}
+      
+      </ul>;
+  }
+  ReactDOM.render(<ListNoms ns={["a","b","c"]} c="red"/>,document.getElementById("test"));
+
+  function F3({n,p,c}){
+    return
+    <p style={{color:c,textDecoration:"underline"}}>
+      <span>Hello:</span>
+      <li>{n}</li>
+      <li>{p}</li>
+    </p>;  
+
+  }
+var clr="red";
+ReactDOM.render(<F3 n="alaoui" p="khalid" c={clr}/>),document.getElementById("revision");
+
+
+function Fmessage1(){
+  return <p>Hello Function</p>
+}
+class Fmessage2 extends React.Component{
+  constructor(){
+    super();
+  }
+}
+
+
+const voiture=["audi","fiat","dacia"];
+
+
+
+class ListeVc extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return (
+      <ul style={{color:"red"}}>
+        {this.props.voiture.map((n,i)=><li>{n}</li>)}
+        </ul>
+
+    )
+  }
+}  
+ReactDOM.render(<ListeVc voiture={voiture}/>,document.getElementById("revision"));
+*/
+
+//-----------------------------------------------------------------------------------------------------
+
+const produits=[
+            {
+                ref:1,
+                designation:'PC  Portable Gamer HP VICTUS',
+                prix:'7490 DH',
+                image:'HP16D0195NF.jpg'
+            },
+            {
+                ref:2,
+                designation:'PC  Portable Gamer HP VICTUS',
+                prix:'2190 DH',
+                image:'HP14424U3EA.jpg'
+            },
+            {
+                ref:3,
+                designation:'PC  Portable Chromebook Acer',
+                prix:'3640 DH',
+                image:'NXATHEF002.jpg'
+            },
+            {
+                ref:4,
+                designation:'PC  Portable - HUAWEI',
+                prix:'1270 DH',
+                image:'HUA6901443442959.jpg'
+            }
+        ]
+    function Produit(props){
+        return (     
+                <div className="col">
+                <div className="card shadow-sm">
+                <img className="bd-placeholder-img card-img-top" src={`pictures/${props.data.image}`} alt=""/>
+                <div class="card-body">
+                    <p class="card-title">{props.data.designation}</p>
+                    <p class="card-text">{props.data.prix}</p>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <div className="btn-group">
+                        <button type="button" className="btn btn-sm btn-outline-secondary">Ajouter au panier</button>
+                    </div></div></div></div></div>
+            
+        )
+    }  
+    function ListeProduits(){
+        return(
+            <div className="container">
+                <div className="row">
+                    {produits.map((p,i)=><Produit data={p} />)}
+                </div>
+            </div>
+        )
+    }
+
+
+
+    ReactDOM.render(<ListeProduits/>,document.getElementById("app"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</html>
